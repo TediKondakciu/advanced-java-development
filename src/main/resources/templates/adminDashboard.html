@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Admin Dashboard - Sporty Shoes</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+    <h2>Manage Shoes and Orders</h2>
+    <nav>
+        <div>
+            <a th:href="@{/admin/shoes}">View Shoes</a>
+            <a th:href="@{/admin/orders}">View Orders</a>
+        </div>
+        <form action="/logout" method="post" style="display: inline;">
+            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <button type="submit">Logout</button>
+        </form>
+    </nav>
+</body>
+</html>

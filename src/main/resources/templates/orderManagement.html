@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Order Management - Sporty Shoes</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Order Management</h1>
+    <div th:each="order : ${orders}">
+        <h3 th:text="'Order ID: ' + ${order.id}">Order ID</h3>
+        <p th:text="'Customer: ' + ${order.userEmail}">Customer</p>
+        <p th:text="'Total Price: $' + ${order.totalPrice}">Total Price</p>
+        <p th:text="'Order Date: ' + ${order.orderDate}">Order Date</p>
+    </div>
+    <div>
+        <a href="/admin/dashboard">Back to Dashboard</a>
+    </div>
+</body>
+</html>

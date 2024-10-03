@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Sporty Shoes - Home</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<h2>Welcome to Sporty Shoes</h2>
+
+<div>
+    <h3>Available Shoes</h3>
+    <div th:each="shoe : ${shoes}">
+        <div class="shoe-item">
+            <h4 th:text="${shoe.brand}">Brand</h4>
+            <p th:text="${shoe.type}">Type</p>
+            <p>Quantity: <span th:text="${shoe.quantity}">Quantity</span></p>
+            <p>Price: $<span th:text="${shoe.price}">Price</span></p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a href="/login">Login</a> | <a href="/register">Register</a>
+</div>
+</body>
+</html>

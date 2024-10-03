@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>User Dashboard - Sporty Shoes</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h2>Your Dashboard</h2>
+
+    <div>
+        <h3>Your Orders</h3>
+        <div th:each="order : ${orders}">
+            <div class="order-item">
+                <p>Order ID: <span th:text="${order.id}">Order ID</span></p>
+                <p>Quantity: <span th:text="${order.quantity}">Quantity</span></p>
+                <p>Shoe Price: <span th:text="${order.shoe.getPrice()}">Price</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h3>Available Shoes</h3>
+        <div th:each="shoe : ${shoes}">
+            <div class="shoe-item">
+                <h4 th:text="${shoe.brand}">Brand</h4>
+                <p th:text="${shoe.type}">Type</p>
+                <p>Price: $<span th:text="${shoe.price}">Price</span></p>
+                <a th:href="@{/order/form(shoeId=${shoe.id})}">Order Now</a>
+            </div>
+        </div>
+    </div>
+
+    <form action="/logout" method="post" style="display: inline;">
+        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

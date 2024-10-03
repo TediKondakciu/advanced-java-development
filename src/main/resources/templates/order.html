@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Place Your Order - Sporty Shoes</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <h1>Order Shoe</h1>
+    <form th:action="@{/order/place}" method="post">
+        <input type="hidden" name="shoeId" th:value="${shoe.id}" />
+
+        <div>
+            <label>Shoe Name:</label>
+            <span th:text="${shoe.brand}"></span>
+        </div>
+
+        <div>
+            <label>Quantity:</label>
+            <input type="number" name="quantity" min="1" required />
+        </div>
+
+        <button type="submit">Place Order</button>
+    </form>
+</body>
+</html>
